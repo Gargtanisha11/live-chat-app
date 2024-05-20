@@ -1,11 +1,13 @@
 import Button from "./Button";
 
 import Login from "./Login";
+import Navbar from "./Navbar";
 
 const Home = () => {
   return (
-    <div className=" py-[7%] text-center border rounded-lg border-black mx-[20%] my-[5%] w-[50%]">
-      <Login/>
+    <div className="  text-center  bg-zinc-700 min-h-screen">
+      <Navbar/>
+    
       <Button name="Sign Up" />
     </div>
   );
