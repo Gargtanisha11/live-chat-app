@@ -7,3 +7,9 @@
 - creating Responsive Home Page with login and signup button
 
 - add  @auth0/auth0-react  and create an single app aplication on auth by okta
+
+
+# to do  (20-may-2024)
+- Add shimmer
+- Complete Landing Page  ( Done )
+- add Router
