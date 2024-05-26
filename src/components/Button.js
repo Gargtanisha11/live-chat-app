@@ -4,12 +4,15 @@ const Button = ({ name,  }) => {
   const {  loginWithRedirect, logout } = useAuth0();
    const onClickFunc=()=>{
     if(name==="Log In"){
-      loginWithRedirect();
+      const loginData=loginWithRedirect();
+      console.log("logIn " ,loginData)
+      console.log(" just writting to check the return value of login ReDirect ")
     }
     else if(name==="Sign Up"){
-      loginWithRedirect({authorizationParams:{screen_hint:'signup'}});
+       loginWithRedirect({authorizationParams:{screen_hint:'signup'}});
+      
     }
-    else if(name==="Log out"){
+    else if(name==="Log Out"){
       logout();
      }
   }

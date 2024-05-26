@@ -1,12 +1,15 @@
 
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home';
+import router from "./Router.js"
+
 
 function App() {
   return (
-    <div className="App min-h-screen">
-       <Home/>
-    </div>
+    // <div className="App min-h-screen">
+    //    <Home/>
+    // </div>
+    <RouterProvider router={router}/>
   );
 }
 

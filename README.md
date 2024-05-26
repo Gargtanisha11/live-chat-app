@@ -12,4 +12,6 @@
 # to do  (20-may-2024)
 - Add shimmer
 - Complete Landing Page  ( Done )
-- add Router
+- add Router ( add Protected Router 
+        -> error :- when i go on url "/loogedIn" it take me to "/" because isauthenticated value is always giving false value
+        -> solution :- i have to use isLoading beacause it is loading that's why  isauthenticated value is false  )
