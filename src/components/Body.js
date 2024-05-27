@@ -5,8 +5,8 @@ import Button from "./Button";
 const Body = () => {
   const {isAuthenticated}=useAuth0();
   return (
-    <div className="flex flex-row place-content-between">
-      <div className=" w-64 text-white italic mt-32 ml-40 ">
+    <div className="flex flex-row place-content-between text-center ">
+      <div className=" w-64 text-white italic md:mt-44 ml-40 ">
         <h1 className="  text-2xl "> Chatting </h1>
         <h1>{TEXT_FOR_APP}</h1>
         {
@@ -20,7 +20,7 @@ const Body = () => {
         }
        
       </div>
-      <div className="w-96 mr-72">
+      <div className="w-96 mr-72 mt-20">
         <img src={BODY_CHAT_IMG} alt=" Img for chatting "  />
       </div>
     </div>
