@@ -25,10 +25,11 @@ const Navbar = () => {
       </div>
 
       <div className=" hidden md:flex flex-row px-5 items-center md:text-lg lg:text-xl mr-5 ">
-        <div className=" mx-5 ">Home</div>
-        <div className=" mx-5 ">Feature</div>
-        <div className=" mx-5 ">About</div>
-        <div className=" mx-5 ">Contact</div>
+        {
+          Navbar_opt.map((option)=>
+          (<div className="md:mx-2 lg:mx-5" key={option}>{ option}</div>))
+        }
+
         {!isAuthenticated ? (
           <Button name="Log In" />
         ) : (
@@ -36,17 +37,17 @@ const Navbar = () => {
         )}
       </div>
       <div className=" md:hidden mr-5   h-5 self-center text-black">
-        <label for="navbar opt" onClick={toggleSelectOpt}>
+        <label for="navbar opt"  onClick={toggleSelectOpt} >
           <img src={HAMBURGER_MENU} alt=" hamburger menu" />
         </label>
-        {selectOpt && <select name="navbar opt " id="navbar opt" >
+        {selectOpt && <select name="navbar opt " id="navbar opt" size={Navbar_opt.length+1} >
           {Navbar_opt.map((option) => (
-            <option onClick={toggleSelectOpt}>{option}</option>
+            <option key={option} onClick={toggleSelectOpt} >{option}</option>
           ))}
           {!isAuthenticated ? (
-            <option onClick={()=>loginWithRedirect()}>Log In</option>
+            <option onClick={()=>{toggleSelectOpt(); loginWithRedirect()}} >Log In</option>
           ) : (
-            <option onClick={()=>logout()}>Log Out</option>
+            <option onClick={()=>{toggleSelectOpt(); logout()}} >Log Out</option>
           )}
         </select>}
       </div>
