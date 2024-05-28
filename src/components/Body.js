@@ -5,8 +5,11 @@ import Button from "./Button";
 const Body = () => {
   const {isAuthenticated}=useAuth0();
   return (
-    <div className="flex flex-row place-content-between text-center ">
-      <div className=" w-64 text-white italic md:mt-44 ml-40 ">
+    <div className="  grid  bg-zinc-700  md:grid-cols-2 items-center  md:place-content-between  text-center w-screen h-fit">
+       <div className=" md:order-2 w-64 my-5 mx-5 md:w-96 ">
+        <img src={BODY_CHAT_IMG} alt=" Img for chatting "  />
+      </div>
+      <div className=" md:order-1 w-64 text-white italic md:mt-44 ml-40 ">
         <h1 className="  text-2xl "> Chatting </h1>
         <h1>{TEXT_FOR_APP}</h1>
         {
@@ -20,9 +23,7 @@ const Body = () => {
         }
        
       </div>
-      <div className="w-96 mr-72 mt-20">
-        <img src={BODY_CHAT_IMG} alt=" Img for chatting "  />
-      </div>
+     
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Navbar = () => {
         )}
       </div>
       <div className=" md:hidden mr-5   h-5 self-center text-black">
-        <label for="navbar opt"  onClick={toggleSelectOpt} >
+        <label htmlFor="navbar opt"  onClick={toggleSelectOpt} >
           <img src={HAMBURGER_MENU} alt=" hamburger menu" />
         </label>
         {selectOpt && <select name="navbar opt " id="navbar opt" size={Navbar_opt.length+1} >

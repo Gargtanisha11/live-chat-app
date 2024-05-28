@@ -18,7 +18,7 @@
 
 
 # to do (26-May-2024)
-- made it responsive 
+- made it responsive (navBar, Body)
   ## error 
    1-> error when i click on option the dropdown list is not disappearing 
     -> solution because i dont set the size attribute in select tag that why only one option is showing and only that funtion is calling 

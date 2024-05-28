@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 
 const Home = () => {
   return (
-    <div className="  text-center  bg-zinc-700 min-h-screen min-w-screen">
+    <div className="  text-center h-screen bg-zinc-700 ">
       <Navbar/>
       <Body/>
    
