@@ -2,13 +2,19 @@ import { useState } from "react";
 import { HAMBURGER_MENU, LiveChat_LOGO, Navbar_opt } from "../utils/Constants";
 import Button from "./Button";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useDispatch } from "react-redux";
+import { userLoggedIn, userLoggedOut } from "../redux/authenticationDetailSlice";
 
 const Navbar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout ,user} = useAuth0();
   const  [selectOpt,setSelectOpt] =useState(false);
   const toggleSelectOpt=()=>{
      setSelectOpt(!selectOpt);
   }
+ const dispatch=useDispatch();
+
+
+  isAuthenticated ? (dispatch(userLoggedIn(user))) : dispatch(userLoggedOut()) 
   return (
     <div className="h-10  md:h-24 w-screen text-white bg-zinc-400 flex flex-row place-content-between ">
       <div className="flex flex-row items-center">

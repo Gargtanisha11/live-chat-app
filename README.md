@@ -7,6 +7,7 @@
 - creating Responsive Home Page with login and signup button
 
 - add  @auth0/auth0-react  and create an single app aplication on auth by okta
+ -create refux store for storing the logged In details
 
 
 ## to do  (20-may-2024)
@@ -22,3 +23,5 @@
   ## error 
    1-> error when i click on option the dropdown list is not disappearing 
     -> solution because i dont set the size attribute in select tag that why only one option is showing and only that funtion is calling 
+# to do (29-may-2024)
+- made the chat room 
