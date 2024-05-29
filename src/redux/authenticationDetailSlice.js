@@ -12,7 +12,7 @@ const authenticationDetailSlice=createSlice({
             state.userDetails= action.payload
         },
         userLoggedOut:(state)=>{
-            state.isLoggedIn=false;
+            state.isloggedIn=false;
             state.userDetails={}
         },
         

@@ -3,7 +3,10 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Login from "./components/Login";
 import Home from "./components/Home.js";
-//import ProtectedRoute from"./components/ProtectedRoute.js"
+
+import ProtectedRoute from"./components/ProtectedRoute.js"
+import Body from "./components/Body.js";
+import ChatContainer from "./components/ChatContainer.js";
 
 
  
@@ -15,21 +18,25 @@ import Home from "./components/Home.js";
             path:"/",
             element:<Home/>,
             children:[
-                
+                {path:"/",
+                element:<Body/>
+                },
+                {
+                    element:<ProtectedRoute />,
+                    children:[
+                    {
+                        path:"/myChats",
+                        element:<ChatContainer/>
+                    }] 
+                }
+
             ]
         },
         {
             path:"/login",
             element:<Login/>
         },
-        // {
-        //     element:<ProtectedRoute />,
-        //     children:[
-        //         {
-        //             path:"/loggedInPage",
-        //             element:<LoggedInPage/>
-        //         }]
-        // },
+       ,
         {
             path:"*",
             element:<h1> 404 error ... something went wrong</h1>
