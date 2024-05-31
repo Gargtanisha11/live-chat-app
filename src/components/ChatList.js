@@ -2,8 +2,8 @@ import { DUMMYDATA_CHATS } from "../utils/Constants";
 import ChatCard from "./ChatCard";
 
 
-const ChatRoom=()=>{
-    return <div className=" md:w-[40%]  ">
+const ChatList=()=>{
+    return <div className=" md:w-[50%] lg:w-[30%] h-[85vh]  overflow-y-scroll no-scrollbar  ">
         {
             DUMMYDATA_CHATS.map((chat)=>(
                 <ChatCard key={chat?.chat_id} chat={chat} />)
@@ -14,4 +14,4 @@ const ChatRoom=()=>{
     </div>
 }
 
-export default ChatRoom;
+export default ChatList;

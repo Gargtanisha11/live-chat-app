@@ -6,7 +6,7 @@
      const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
      const sendingDate= date.getDate()
      if((currentDateString.getDate()-sendingDate)> 1){
-        return sendingDate+" days ago"
+        return date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
      }
      return timeString
 

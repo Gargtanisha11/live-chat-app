@@ -1,8 +1,9 @@
-import ChatRoom from "./ChatRoom";
+import ChatList from "./ChatList";
 
 const ChatContainer=()=>{
     return <div>
-    <ChatRoom/>
+    <ChatList/>
+
     </div>
 }
 

@@ -42,7 +42,7 @@ const Navbar = () => {
           <Button name="Log Out" />
         )}
       </div>
-      <div className=" md:hidden mr-5   h-5 self-center text-black">
+      <div className=" md:hidden mr-5   h-5 self-center text-black z-10">
         <label htmlFor="navbar opt"  onClick={toggleSelectOpt} >
           <img src={HAMBURGER_MENU} alt=" hamburger menu" />
         </label>
