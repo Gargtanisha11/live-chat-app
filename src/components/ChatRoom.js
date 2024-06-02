@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { BODY_CHAT_IMG } from "../utils/Constants"
 import ChatterProfile from "./ChatterProfile"
+import ChattingSpace from "./ChattingSpace";
+import SendingBox from "./SendingBox";
 
 const ChatRoom=()=>{
   
@@ -11,6 +13,8 @@ const ChatRoom=()=>{
        ? <img className="w-52 h-52 mx-96 my-32" src={BODY_CHAT_IMG} alt=" to show chatting " />
        : <div className="w-full"> 
             <ChatterProfile/>
+            <ChattingSpace/>
+            <SendingBox/>
         </div>
        
           // Chatter Profile

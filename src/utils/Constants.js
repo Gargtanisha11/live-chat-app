@@ -80,6 +80,7 @@ export const DUMMYDATA_CHATS = [
     unread_count: 0,
     avatar_url: "https://www.w3schools.com/howto/img_avatar.png",
   },
+  
 ];
 
 export const DUMMYDATA_CHATTING = [

@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Button = ({ name,  }) => {
+const AuthenticateButton = ({ name,  }) => {
   const {  loginWithRedirect, logout } = useAuth0();
    const onClickFunc=()=>{
     if(name==="Log In"){
@@ -24,4 +24,4 @@ const Button = ({ name,  }) => {
   );
 };
 
-export default Button;
+export default AuthenticateButton;

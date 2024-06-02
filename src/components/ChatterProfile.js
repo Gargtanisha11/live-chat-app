@@ -2,7 +2,7 @@ import { MENU_LOGO, USER_AVATAR_LOGO } from "../utils/Constants";
 
 const ChatterProfile = () => {
   return (
-    <div className=" bg-zinc-500 h-12 text-black w-full m-0">
+    <div className=" bg-zinc-500 h-[10%] text-black w-full m-0">
       {
         // user avatar
         // user name

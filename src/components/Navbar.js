@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HAMBURGER_MENU, LiveChat_LOGO, Navbar_opt } from "../utils/Constants";
-import Button from "./Button";
+import AuthenticateButton from "./AuthenticateButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { userLoggedIn, userLoggedOut } from "../redux/authenticationDetailSlice";
@@ -37,9 +37,9 @@ const Navbar = () => {
         }
 
         {!isAuthenticated ? (
-          <Button name="Log In" />
+          <AuthenticateButton name="Log In" />
         ) : (
-          <Button name="Log Out" />
+          <AuthenticateButton name="Log Out" />
         )}
       </div>
       <div className=" md:hidden mr-5   h-5 self-center text-black z-10">
