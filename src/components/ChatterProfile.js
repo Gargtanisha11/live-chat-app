@@ -10,14 +10,13 @@ const ChatterProfile = () => {
       }
       <div className=" flex flex-row place-content-between px-5 py-1  ">
         <div className=" flex flex-row">
-          {" "}
           <img
             src={USER_AVATAR_LOGO}
-            className=" h-10 w-10"
+            className=" h-10 w-10 rounded-full"
             alt=" user avatar"
           />
-          <div className="place-content-start text-left">
-          <h1 className=" px-2 text-sm"> User name </h1>
+          <div className="place-content-start text-left content-center">
+          <h1 className=" px-2 text-lg font-bold text-white"> User name </h1>
           <h1 className=" px-2 text-xs self-start"> Status</h1>
           </div>
           

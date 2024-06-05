@@ -3,10 +3,11 @@ import { BODY_CHAT_IMG } from "../utils/Constants"
 import ChatterProfile from "./ChatterProfile"
 import ChattingSpace from "./ChattingSpace";
 import SendingBox from "./SendingBox";
+import { useStore } from "react-redux";
 
 const ChatRoom=()=>{
   
-     const [isChatClick,setIsChatClicked] =useState(true);
+     const isChatClick= useStore((state)=>state.configuration.isChatclicked)
 
     return <div className=" border border-l border-r-0 border-t-0 border-b-0  border-zinc-500 hidden md:flex md:w-[50%] lg:w-[70%] h-[84.5vh] ">
      { !isChatClick 

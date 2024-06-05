@@ -88,8 +88,8 @@ export const DUMMYDATA_CHATTING = [
     chat_id: "1",
     participants: [
       {
-        user_id: "u101",
-        user_name: "John Doe",
+        user_id: "u107",
+        user_name: "Chris Brown",
         avatar_url: "https://www.w3schools.com/howto/img_avatar.png",
       },
       {
@@ -101,7 +101,7 @@ export const DUMMYDATA_CHATTING = [
     messages: [
       {
         message_id: "m101",
-        sender_id: "u101",
+        sender_id: "u107",
         message: "Hey, are you available for a meeting tomorrow?",
         timestamp: "2024-05-28T14:12:00Z",
       },
@@ -119,8 +119,8 @@ export const DUMMYDATA_CHATTING = [
     chat_id: "2",
     participants: [
       {
-        user_id: "u103",
-        user_name: "Michael Johnson",
+        user_id: "u107",
+        user_name: "Chris Brown",
         avatar_url: "https://www.w3schools.com/howto/img_avatar.png",
       },
       {
@@ -132,7 +132,7 @@ export const DUMMYDATA_CHATTING = [
     messages: [
       {
         message_id: "m103",
-        sender_id: "u103",
+        sender_id: "u107",
         message: "Can you send me the report by end of day?",
         timestamp: "2024-05-28T09:23:00Z",
       },
@@ -155,8 +155,8 @@ export const DUMMYDATA_CHATTING = [
         avatar_url: "https://www.w3schools.com/howto/img_avatar.png",
       },
       {
-        user_id: "u106",
-        user_name: "Sophia Martinez",
+        user_id: "u107",
+        user_name: "Chris Brown",
         avatar_url: "https://www.w3schools.com/howto/img_avatar.png",
       },
     ],
@@ -169,7 +169,7 @@ export const DUMMYDATA_CHATTING = [
       },
       {
         message_id: "m106",
-        sender_id: "u106",
+        sender_id: "u107",
         message: "I have reviewed the document.",
         timestamp: "2024-05-26T11:22:00Z",
       },

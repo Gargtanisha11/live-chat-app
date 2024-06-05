@@ -1,13 +1,16 @@
 
+import { useDispatch } from "react-redux";
 import { nearestTime } from "../utils/helperFunc";
+import { openChatRoom } from "../redux/configureSlice";
 
 const ChatCard = ({chat}) => {
  const { user_name, avatar_url, last_message, unread_count, timestamp } = chat;
  const sendingTime=nearestTime(timestamp);
+ const dispatch=useDispatch();
  
  console.log(chat)
   return (
-    <div className="flex flex-row hover:bg-zinc-300 rounded-lg mx-2 px-2 mb-2 py-2 items-center h-18" >
+    <div className="flex flex-row hover:bg-zinc-300 rounded-lg mx-2 px-2 mb-2 py-2 items-center h-18" onClick={()=>dispatch(openChatRoom())} >
       <div className="   ">
         <img className="h-10 w-10 rounded-full " src={avatar_url} alt="user avatar" />
       </div>

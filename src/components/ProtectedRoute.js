@@ -5,16 +5,16 @@ import { Navigate, Outlet } from "react-router-dom"
 const ProtectedRoute=()=>{
    
   
-   const{isAuthenticated,isLoading}=useAuth0()
+   // const{isAuthenticated,isLoading}=useAuth0()
   
      
-   if(isLoading){
-      return <div>...loading </div>
-   }
+   // if(isLoading){
+   //    return <div>...loading </div>
+   // }
  
-    if(!isAuthenticated){
-       return <Navigate to="/" replace />
-    }
+   //  if(!isAuthenticated){
+   //     return <Navigate to="/" replace />
+   //  }
     return <Outlet/>
 }
 
