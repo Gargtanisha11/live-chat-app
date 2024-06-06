@@ -1,6 +1,16 @@
-import { MENU_LOGO, USER_AVATAR_LOGO } from "../utils/Constants";
+import { useState } from "react";
+import {
+  ChatterProfileOpt,
+  MENU_LOGO,
+  USER_AVATAR_LOGO,
+} from "../utils/Constants";
 
 const ChatterProfile = () => {
+   const [isChattingProfileOptShows, setIsChattingProfileOptShows]= useState(false);
+   const handleIsChattingProflieOptShows=()=>{
+    setIsChattingProfileOptShows(!isChattingProfileOptShows);
+   }
+
   return (
     <div className=" bg-zinc-500 h-[10%] text-black w-full m-0">
       {
@@ -16,13 +26,25 @@ const ChatterProfile = () => {
             alt=" user avatar"
           />
           <div className="place-content-start text-left content-center">
-          <h1 className=" px-2 text-lg font-bold text-white"> User name </h1>
-          <h1 className=" px-2 text-xs self-start"> Status</h1>
+            <h1 className=" px-2 text-lg font-bold text-white"> User name </h1>
+            <h1 className=" px-2 text-xs self-start"> Status</h1>
           </div>
-          
         </div>
+        <div>
+          <label htmlFor={ChatterProfileOpt}>
+            <img src={MENU_LOGO} className="h-10 w-5 " alt=" three dot menu " onClick={handleIsChattingProflieOptShows}/>
+          </label>
 
-        <img src={MENU_LOGO} className="h-10 w-5 " alt=" three dot menu " />
+          { isChattingProfileOptShows && <select id={ChatterProfileOpt}name=" chatter profile options " size={ChatterProfileOpt.length} className="z-10 absolute   left-[60%] md:left-[85%]">
+              {
+                ChatterProfileOpt.map((option)=>(
+                  <option key={option} onClick={handleIsChattingProflieOptShows}>{option}</option>
+                ))
+              }
+            </select>
+         
+          }
+        </div>
       </div>
     </div>
   );

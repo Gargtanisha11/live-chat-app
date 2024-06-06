@@ -13,7 +13,12 @@ export const HAMBURGER_MENU =
 export const USER_AVATAR_LOGO="https://www.w3schools.com/howto/img_avatar.png"
 
 export const MENU_LOGO="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWVsbGlwc2lzLXZlcnRpY2FsIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSI1IiByPSIxIi8+PGNpcmNsZSBjeD0iMTIiIGN5PSIxOSIgcj0iMSIvPjwvc3ZnPg=="
+
+
 export const Navbar_opt = ["Home", "Feature", "About", "Contact", "Setting"];
+
+
+export const ChatterProfileOpt=["View Contact","Media links and docs",'Search',"More"];
 
 // mock data for showing the chat list
 export const DUMMYDATA_CHATS = [
