@@ -7,6 +7,7 @@ import Home from "./components/Home.js";
 import ProtectedRoute from"./components/ProtectedRoute.js"
 import Body from "./components/Body.js";
 import ChatContainer from "./components/ChatContainer.js";
+import SignUp from "./components/SignUp.js";
 
 
  
@@ -36,7 +37,10 @@ import ChatContainer from "./components/ChatContainer.js";
             path:"/login",
             element:<Login/>
         },
-       ,
+       {
+        path:"/register",
+        element:<SignUp/>
+       },
         {
             path:"*",
             element:<h1> 404 error ... something went wrong</h1>
