@@ -51,7 +51,7 @@ const Login = () => {
           <h1>SignIn</h1>
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="name" className="lg:w-[30%] h-8">
+          <label htmlFor="name" className="lg:w-[30%] h-8">
             UserName
           </label>
           <input
@@ -65,7 +65,7 @@ const Login = () => {
           />
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="email" className="lg:w-[30%] h-8">
+          <label htmlFor="email" className="lg:w-[30%] h-8">
             Email
           </label>
           <input
@@ -78,7 +78,7 @@ const Login = () => {
           />
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="password" className="lg:w-[30%] h-8">
+          <label htmlFor="password" className="lg:w-[30%] h-8">
             Password
           </label>
           <input

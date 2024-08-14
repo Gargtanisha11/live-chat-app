@@ -30,13 +30,10 @@ const register = async (data) => {
 
 const login = async(data)=>{
  try {
-   const response = await axios.post("http://localhost:8000/api/v1/user/loginUser",data);
+   const response = await axios.post("http://localhost:8000/api/v1/user/loginUser",data,{withCredentials:true}); // withCredential true is imp for set the cookie
    alert(" User loggedIn successfully")
-   //const userData = await axios.get("http://localhost:8000/api/v1/user/getUserDetails");
-   // console.log(userData);
    return response;
  } catch (error) {
-    console.log(error);
      const errMessage= errors[error?.response.status];
      alert(errMessage);
      return errMessage
@@ -44,4 +41,13 @@ const login = async(data)=>{
  }
 }
 
-export { register, login };
+const userDetails=async()=>{
+  try {
+    const response =await axios.get("http://localhost:8000/api/v1/user/getUserDetails",{withCredentials:true});
+    console.log(response);
+  } catch (error) {
+     console.log(error);
+  }
+}
+
+export { register, login, userDetails };
