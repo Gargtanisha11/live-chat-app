@@ -1,9 +1,28 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { BODY_CHAT_IMG, TEXT_FOR_APP } from "../utils/Constants";
 import AuthenticateButton from "./AuthenticateButton";
+import { useDispatch, useSelector } from "react-redux";
+import { userLoggedIn } from "../redux/authenticationDetailSlice";
+import { userDetails } from "../hooks/auth";
+import { useEffect } from "react";
+
 
 const Body = () => {
-  const {isAuthenticated}=useAuth0();
+ // const {isAuthenticated}=useAuth0();
+ 
+ const isAuthenticated= useSelector(state=>state.authenticationDetails.isloggedIn);
+
+
+  const dispatch= useDispatch();
+
+  const fetchUserData=async()=>{
+  const response = await userDetails();
+  if(response?.status ===200){
+    dispatch(userLoggedIn(response?.data?.data));
+  }
+}
+useEffect(()=>{
+   fetchUserData();
+},)
   return (
     <div className="  grid  bg-zinc-700 mx-32  md:grid-cols-2 items-center  md:place-content-between  text-center">
        <div className=" md:order-2 w-64 my-5  md:w-96 self-center ">

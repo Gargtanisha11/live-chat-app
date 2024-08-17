@@ -2,8 +2,10 @@
 // import AuthenticateButton from "./AuthenticateButton";
 
 import {  useState } from "react";
-import { Link } from "react-router-dom";
-import { login } from "../hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { login, } from "../hooks/auth";
+import { useDispatch } from "react-redux";
+import { userLoggedIn } from "../redux/authenticationDetailSlice";
 
 const Login = () => {
   // every field value
@@ -14,7 +16,8 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+   const dispatch= useDispatch();
+   const navigate = useNavigate();
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState("");
 
@@ -25,15 +28,17 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
     const response = await login(data);
-    handleReset(e);
-
+    if(response?.status === 200){
+      dispatch(userLoggedIn(response?.data?.data));
+      navigate("/");
+    }
+    handleReset(e); 
   };
 
-  const handleReset = (e) => {
+  const handleReset = async(e) => {
     e.preventDefault();
-
+    
      const newData=Object.keys(data).reduce((acc,field)=>{
       acc[field]= ""
        return acc;
@@ -41,7 +46,7 @@ const Login = () => {
     setData(newData);
     setIsError(false);
     setError("");
-    
+
     };
 
   return (

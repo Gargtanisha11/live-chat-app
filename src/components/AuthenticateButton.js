@@ -1,20 +1,23 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { logout } from "../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 const AuthenticateButton = ({ name,  }) => {
-  const {  loginWithRedirect, logout } = useAuth0();
-   const onClickFunc=()=>{
+
+  const navigate = useNavigate();
+   const onClickFunc=async()=>{
     if(name==="Log In"){
-      const loginData=loginWithRedirect();
-      console.log("logIn " ,loginData)
-      console.log(" just writting to check the return value of login ReDirect ")
+       navigate("/login");
     }
     else if(name==="Sign Up"){
-       loginWithRedirect({authorizationParams:{screen_hint:'signup'}});
+        navigate("/register")
       
     }
     else if(name==="Log Out"){
-      logout();
-     }
+         const response = await logout();
+          if(response?.status === 200){
+            navigate("/login")
+          }
+        }
   }
   
   return (

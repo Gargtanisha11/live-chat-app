@@ -1,5 +1,6 @@
 import axios from "axios";
 import { errors } from "../statusCode/error";
+import { USER_DETAILS, USER_LOGIN, USER_LOGOUT, USER_REGISTER } from "../utils/ApiUrl";
 
 
 
@@ -16,7 +17,7 @@ const register = async (data) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/v1/user/register",
+      USER_LOGIN,
       form
     );
     alert(" Created Account SuccessFully ! Go ahead and login ");
@@ -30,7 +31,7 @@ const register = async (data) => {
 
 const login = async(data)=>{
  try {
-   const response = await axios.post("http://localhost:8000/api/v1/user/loginUser",data,{withCredentials:true}); // withCredential true is imp for set the cookie
+   const response = await axios.post(USER_REGISTER,data,{withCredentials:true}); // withCredential true is imp for set the cookie
    alert(" User loggedIn successfully")
    return response;
  } catch (error) {
@@ -41,13 +42,23 @@ const login = async(data)=>{
  }
 }
 
+const logout=async()=>{
+  try {
+    const response = await axios.post(USER_LOGOUT,{},{withCredentials:true});
+    return response;
+  } catch (error) {
+    return error;
+  } 
+}
+
 const userDetails=async()=>{
   try {
-    const response =await axios.get("http://localhost:8000/api/v1/user/getUserDetails",{withCredentials:true});
-    console.log(response);
+    const response =await axios.get(USER_DETAILS,{withCredentials:true});
+    return response;
   } catch (error) {
-     console.log(error);
+     const errMessage= errors[error?.response?.status];
+     return errMessage;
   }
 }
 
-export { register, login, userDetails };
+export { register, login, userDetails,logout };
