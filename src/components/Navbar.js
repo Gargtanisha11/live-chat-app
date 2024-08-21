@@ -3,13 +3,11 @@ import { HAMBURGER_MENU, LiveChat_LOGO, Navbar_opt } from "../utils/Constants";
 import AuthenticateButton from "./AuthenticateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationDetailSlice";
-import { useNavigate } from "react-router-dom";
 import { logout } from "../hooks/auth";
 
 const Navbar = () => {
  // const { isAuthenticated, loginWithRedirect, logout ,user} = useAuth0();
   const isAuthenticated = useSelector(state=> state.authenticationDetails.isloggedIn) ;
- //  console.log("isAuthenticated ",isAuthenticated)
  // const user = useSelector(state=>state.authenticationDetails.userDetails);
   const  [selectOpt,setSelectOpt] =useState(false);
   const toggleSelectOpt=()=>{
@@ -17,7 +15,7 @@ const Navbar = () => {
   }
 
  const dispatch=useDispatch();
- const navigate= useNavigate();
+ //const navigate= useNavigate();
 
 
  const handleLogout=async()=>{
@@ -26,10 +24,8 @@ const Navbar = () => {
   if(response?.status ===200){
     toggleSelectOpt();
     dispatch(userLoggedOut())
-    navigate("/login");
   }
  }
- // isAuthenticated ? (dispatch(userLoggedIn(user))) : dispatch(userLoggedOut()) 
   return (
     <div className="h-10  md:h-24 w-screen text-white bg-zinc-400 flex flex-row place-content-between ">
       <div className="flex flex-row items-center">

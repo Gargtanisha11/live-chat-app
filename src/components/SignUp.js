@@ -83,7 +83,7 @@ const SignUp = () => {
           <h1>Sign Up</h1>
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="userName" className="lg:w-[30%] h-8">
+          <label htmlFor="userName" className="lg:w-[30%] h-8">
             User Name
           </label>
           <input
@@ -96,7 +96,7 @@ const SignUp = () => {
           />
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="fullName" className="lg:w-[30%] h-8">
+          <label htmlFor="fullName" className="lg:w-[30%] h-8">
             Full Name
           </label>
           <input
@@ -109,7 +109,7 @@ const SignUp = () => {
           />
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="email" className="lg:w-[30%] h-8">
+          <label htmlFor="email" className="lg:w-[30%] h-8">
             Email
           </label>
           <input
@@ -122,7 +122,7 @@ const SignUp = () => {
           />
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="password" className="lg:w-[30%] h-8">
+          <label htmlFor="password" className="lg:w-[30%] h-8">
             Password
           </label>
           <input
@@ -135,7 +135,7 @@ const SignUp = () => {
           />
         </div>
         <div className=" w-full py-4 px-6 md:px-8 grid grid-flow-row lg:flex justify-between">
-          <label for="confirmPassword" className="lg:w-[30%] h-8">
+          <label htmlFor="confirmPassword" className="lg:w-[30%] h-8">
             Confirm Password
           </label>
           <input

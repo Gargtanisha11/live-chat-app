@@ -1,10 +1,15 @@
+import { useDispatch } from "react-redux";
 import { logout } from "../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { userLoggedOut } from "../redux/authenticationDetailSlice";
 
 const AuthenticateButton = ({ name,  }) => {
 
+
   const navigate = useNavigate();
-   const onClickFunc=async()=>{
+  const dispatch= useDispatch();
+
+  const onClickFunc=async()=>{
     if(name==="Log In"){
        navigate("/login");
     }
@@ -15,7 +20,8 @@ const AuthenticateButton = ({ name,  }) => {
     else if(name==="Log Out"){
          const response = await logout();
           if(response?.status === 200){
-            navigate("/login")
+            //navigate("/login")
+            dispatch(userLoggedOut())
           }
         }
   }

@@ -29,6 +29,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await login(data);
+    console.log(response);
     if(response?.status === 200){
       dispatch(userLoggedIn(response?.data?.data));
       navigate("/");
