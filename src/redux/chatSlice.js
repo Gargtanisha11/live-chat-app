@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const chatSlice = createSlice({
-    name:"chat", 
+    name:"chats", 
     initialState:{
         chat:{}
     },
@@ -10,7 +10,7 @@ const chatSlice = createSlice({
             state.chat=action.payload
         },
         clearChat:(state,action)=>{
-            state.chat={}
+            state.chat=action.payload
         }
     }
 })

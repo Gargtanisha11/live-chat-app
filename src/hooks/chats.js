@@ -6,8 +6,10 @@ import { GET_CHATS } from "../utils/ApiUrl"
      try {
         const chats = await axios.get(GET_CHATS,{withCredentials:true});
         console.log(chats)
+        return chats;
      } catch (error) {
         console.log(error);
+        return error ;
      }
   }
 
