@@ -2,6 +2,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { nearestTime } from "../utils/helperFunc";
 import { openChatRoom } from "../redux/configureSlice";
+import { getChatMessages } from "../hooks/chats";
 
 const ChatCard = ({chat}) => {
  //const { user_name, avatar_url, last_message, unread_count, timestamp } = chat;
@@ -18,7 +19,7 @@ const ChatCard = ({chat}) => {
  let avatarUrl;
  
  
-  if( participants[0].userName != currentUserName){
+  if( participants[0].userName !== currentUserName){
     userName = participants[0].userName;
      avatarUrl = participants[0].avatar;
  }
@@ -27,8 +28,21 @@ const ChatCard = ({chat}) => {
    avatarUrl = participants[1].avatar;
  }
 
+
+  const handleClickChatCard = async()=>{
+    dispatch(openChatRoom());
+  try {
+      const response = await getChatMessages(chat._id);
+      console.log(response);
+
+  } catch (error) {
+      console.log(error );
+      alert(error);
+  }
+  }
+
   return (
-    <div className="flex flex-row hover:bg-zinc-300 rounded-lg mx-2 px-2 mb-2 py-2 items-center h-18 place-content-between" onClick={()=>dispatch(openChatRoom())} >
+    <div className="flex flex-row hover:bg-zinc-300 rounded-lg mx-2 px-2 mb-2 py-2 items-center h-18 place-content-between" onClick={()=>handleClickChatCard()} >
       <div className=" flex flex-row   ">
         <img className="h-10 w-10 rounded-full " src={avatarUrl} alt="user avatar" />
         <div className=" text-zinc-400 mx-2 text-left ">

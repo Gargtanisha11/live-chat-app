@@ -37,15 +37,17 @@ i need to create model for users model  , chat model for  connected User , messa
 
 # 16 august -23 august 
 - implement the logout button  ✅
+- protected routes ( get the user details)✅
 - get the chat list at the my chats (
-   create the redux store for storing the chat 
-   get the chat ans store it in redux store 
-   backend correction ( last message is by sending by the user )
-   map it at ui  with their link to open their particular chat 
+   create the redux store for storing the chat ✅
+   get the chat ans store it in redux store ✅
+   backend correction ( last message is by sending by the user )✅
+   map it at ui  with their link to open their particular chat ✅
 
 )
 - when user click on a chat card (
-  fetch the message data 
+  fetch the message data ✅
+  create redux store for messages 
   and map it with  time stamp 
 )
 

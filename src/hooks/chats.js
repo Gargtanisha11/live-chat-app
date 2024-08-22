@@ -1,5 +1,6 @@
 import axios from "axios"
-import { GET_CHATS } from "../utils/ApiUrl"
+import { GET_CHATS, GET_MSG } from "../utils/ApiUrl"
+import { errors } from "../statusCode/error";
 
  
   const getChats=async()=>{
@@ -9,8 +10,21 @@ import { GET_CHATS } from "../utils/ApiUrl"
         return chats;
      } catch (error) {
         console.log(error);
-        return error ;
+        const errMessage = errors[error?.response?.status];
+        return errMessage;
      }
   }
 
-  export {getChats}
+  const getChatMessages = async(chatId)=>{
+   console.log( chatId)
+     try {
+        const response = await axios.get(GET_MSG+chatId,{withCredentials:true});
+        console.log( response);
+        return response;
+     } catch (error) {
+        const errMessage = errors[error?.response?.status];
+        return errMessage;
+     }
+  }
+
+  export {getChats,getChatMessages};
