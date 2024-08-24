@@ -47,8 +47,8 @@ i need to create model for users model  , chat model for  connected User , messa
 )
 - when user click on a chat card (
   fetch the message data ✅
-  create redux store for messages 
-  and map it with  time stamp 
+  create redux store for messages ✅
+  and map it with  time stamp ✅
 )
 
 

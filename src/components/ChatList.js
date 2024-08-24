@@ -36,7 +36,7 @@ const ChatList=()=>{
          
       {
         chat.map((chat)=>(
-          <ChatCard key={chat?.id} chat={chat} />
+          <ChatCard key={chat?._id} chat={chat} />
         ))
       }
 

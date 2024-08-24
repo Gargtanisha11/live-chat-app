@@ -57,8 +57,6 @@ const logout=async()=>{
 const userDetails=async()=>{
   try {
     const response =await axios.get(USER_DETAILS,{withCredentials:true});
-    console.log(response)
-    console.log(" hello from here")
     return response;
   } catch (error) {
      const errMessage= errors[error?.response?.status];
