@@ -12,7 +12,7 @@ const ChatterProfile = ({userName,avatar}) => {
 
 
   return (
-    <div className=" bg-zinc-500 h-[10%] text-black w-full m-0">
+    <div className=" bg-zinc-500 h-max text-black w-full m-0">
       {
         // user avatar
         // user name

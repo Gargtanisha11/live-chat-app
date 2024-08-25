@@ -4,19 +4,36 @@ import AuthenticateButton from "./AuthenticateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationDetailSlice";
 import { logout } from "../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
- // const { isAuthenticated, loginWithRedirect, logout ,user} = useAuth0();
+  const navigate = useNavigate();
   const isAuthenticated = useSelector(state=> state.authenticationDetails.isloggedIn) ;
- // const user = useSelector(state=>state.authenticationDetails.userDetails);
   const  [selectOpt,setSelectOpt] =useState(false);
   const toggleSelectOpt=()=>{
      setSelectOpt(!selectOpt);
   }
 
  const dispatch=useDispatch();
- //const navigate= useNavigate();
 
+ 
+const handleClickOpt=(opt)=>{
+  console.log(opt);
+  switch (opt) {
+    case "Home":
+      navigate("/")
+      break;
+    case "Chats":
+      navigate("/myChats")
+      break;
+    case "Login":
+      navigate("/login")
+      break;
+    default:
+      navigate("/")
+      break;
+  }
+}
 
  const handleLogout=async()=>{
   const response = await logout();
@@ -44,7 +61,7 @@ const Navbar = () => {
       <div className=" hidden md:flex flex-row px-5 items-center md:text-lg lg:text-xl mr-5 ">
         {
           Navbar_opt.map((option)=>
-          (<div className="md:mx-2 lg:mx-5" key={option}>{ option}</div>))
+          (<div className="md:mx-2 lg:mx-5 hover:text-zinc-600 " key={option} onClick={()=>handleClickOpt(option)}>{ option}</div>))
         }
 
         {!isAuthenticated ? (
@@ -59,10 +76,10 @@ const Navbar = () => {
         </label>
         {selectOpt && <select name="navbar opt " id="navbar opt" size={Navbar_opt.length+1} >
           {Navbar_opt.map((option) => (
-            <option key={option} onClick={toggleSelectOpt} >{option}</option>
+            <option key={option} onClick={()=>{toggleSelectOpt() ; handleClickOpt(option)}}  >{option}</option>
           ))}
           {!isAuthenticated ? (
-            <option onClick={()=>{toggleSelectOpt();  }} >Log In</option>
+            <option onClick={()=>{toggleSelectOpt(); handleClickOpt("Login")  }} >Log In</option>
           ) : (
             <option onClick={()=>handleLogout()} >Log Out</option>
           )}

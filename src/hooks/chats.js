@@ -1,5 +1,5 @@
 import axios from "axios"
-import { GET_CHATS, GET_MSG } from "../utils/ApiUrl"
+import { GET_CHATS, GET_MSG, SEND_MSG } from "../utils/ApiUrl"
 import { errors } from "../statusCode/error";
 
  
@@ -23,4 +23,15 @@ import { errors } from "../statusCode/error";
      }
   }
 
-  export {getChats,getChatMessages};
+  const sendChatMessage = async(chatId,receiverId,content)=>{
+
+     console.log( "heelo" )
+           try {
+             const response = await axios.post(SEND_MSG+chatId+"/"+receiverId,{content:content},{withCredentials:true});
+             console.log( response);
+           } catch (error) {
+             console.log( error);
+           }  
+  }
+
+  export {getChats,getChatMessages,sendChatMessage};

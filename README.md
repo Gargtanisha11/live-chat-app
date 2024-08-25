@@ -51,6 +51,20 @@ i need to create model for users model  , chat model for  connected User , messa
   and map it with  time stamp ✅
 )
 
+# 24 august - 30 august 
+- implement the api for send the message ✅
+- implement the api for creating chat (
+   make an input box to search for searching the user find username or email id ✅
+   create searchUser function  at backend in user controller ✅
+   it have a list of the user with create chat button
+   on click  open chat room  with that user 
+  )
+- implement websocket at backend (
+    send message 
+    delete message 
+    delete chat 
+
+)
 
 # error solution 
 1. getting error while getto=ing the userdetails beacause not passed the withcredential  parameter in third argument 

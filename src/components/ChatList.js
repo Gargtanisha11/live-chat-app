@@ -3,6 +3,7 @@ import ChatCard from "./ChatCard";
 import { useEffect,useState } from "react";
 import { getChats } from "../hooks/chats";
 import { addChat } from "../redux/chatSlice";
+import SearchUser from "./SearchUser";
 
 
 const ChatList=()=>{
@@ -33,7 +34,7 @@ const ChatList=()=>{
    }
 
     return <div className={!isChatClick ? "w-full md:w-[50%] lg:w-[30%] h-[85vh]  overflow-y-scroll no-scrollbar  " :"hidden md:flex flex-col w-full md:w-[50%] lg:w-[30%] h-[85vh]  overflow-y-scroll no-scrollbar "}>
-         
+         <SearchUser/>
       {
         chat.map((chat)=>(
           <ChatCard key={chat?._id} chat={chat} />
