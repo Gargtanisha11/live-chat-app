@@ -35,6 +35,7 @@ const ChatCard = ({ chat }) => {
   const handleClickChatCard = async () => {
     dispatch(openChatRoom());
     try {
+      dispatch(setLoading(true))
       if(!allChatMsg[chat?._id]) {
         const response = await getChatMessages(chat._id);
         if (response.status === 200) {

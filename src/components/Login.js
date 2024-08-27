@@ -29,7 +29,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await login(data);
-    console.log(response);
     if(response?.status === 200){
       dispatch(userLoggedIn(response?.data?.data));
       navigate("/");
@@ -104,13 +103,13 @@ const Login = () => {
         )}
         <div className="w-full py-4 px-16 lg:px-8  flex justify-between">
           <button
-            className=" bg-blue-900 rounded-lg  px-5 py-2"
+            className=" bg-blue-900 rounded-lg  px-5 py-2 hover:bg-blue-700 active:bg-blue-950"
             onClick={(e) => handleSubmit(e)}
           >
             Submit
           </button>
           <button
-            className=" bg-blue-900 rounded-lg  px-5 py-2"
+            className=" bg-blue-900 rounded-lg  px-5 py-2  hover:bg-blue-700 active:bg-blue-950"
             onClick={(e) => handleReset(e)}
           >
             Reset

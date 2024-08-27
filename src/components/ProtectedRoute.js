@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { userDetails } from "../hooks/auth";
 import { userLoggedIn } from "../redux/authenticationDetailSlice";
+import { setLoading } from "../redux/configureSlice";
  
 
 //  react component can't be asynchronous function 
 const ProtectedRoute = () => {
-
-  const [isLoading,setIsLoading] = useState(true);
+  
+  const isLoading = useSelector(state=>state.configuration.isLoading);
   const isAuthenticated = useSelector(state=> state.authenticationDetails.isloggedIn);
   const dispatch = useDispatch();
 
@@ -17,6 +18,7 @@ const ProtectedRoute = () => {
 
   const fetchUserData = async () => {
    try {
+    dispatch(setLoading(true))
     const response = await userDetails();
      if (response?.status === 200) {
        dispatch(userLoggedIn(response?.data?.data));
@@ -26,12 +28,14 @@ const ProtectedRoute = () => {
       console.log(" error while fetching the data",error)
    }
   finally{
-    setIsLoading(false);
+    dispatch(setLoading(false));
   }
 };
 
   useEffect(()=>{
-   fetchUserData(); 
+    if(!isAuthenticated){
+       fetchUserData(); 
+    }
   },)
   if(isLoading){
     return (<div>Loading....</div>)

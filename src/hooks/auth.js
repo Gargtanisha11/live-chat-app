@@ -1,6 +1,6 @@
 import axios from "axios";
 import { errors } from "../statusCode/error";
-import { USER_DETAILS, USER_LOGIN, USER_LOGOUT, USER_REGISTER } from "../utils/ApiUrl";
+import { FIND_USER, USER_DETAILS, USER_LOGIN, USER_LOGOUT, USER_REGISTER } from "../utils/ApiUrl";
 
 
 
@@ -64,4 +64,14 @@ const userDetails=async()=>{
   }
 }
 
-export { register, login, userDetails,logout };
+const searchUser= async ( userName)=>{
+  if(!userName) return null;
+  try {
+    const response = await axios.patch(FIND_USER,{query:userName},{withCredentials:true});
+    return response;
+  } catch (error) {
+     return error;
+  }
+}
+
+export { register, login, userDetails,logout,searchUser };

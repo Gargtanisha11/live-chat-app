@@ -1,18 +1,41 @@
 import { BODY_CHAT_IMG, TEXT_FOR_APP } from "../utils/Constants";
 import AuthenticateButton from "./AuthenticateButton";
-import { useDispatch, useSelector } from "react-redux";
+import {  useDispatch,useSelector } from "react-redux";
 import { userLoggedIn } from "../redux/authenticationDetailSlice";
 import { userDetails } from "../hooks/auth";
 import { useEffect } from "react";
+import { setLoading } from "../redux/configureSlice";
 
 const Body = () => {
   // const {isAuthenticated}=useAuth0();
+  const dispatch= useDispatch();
 
+  const isLoading= useSelector(state=>state.configuration.isLoading);
   const isAuthenticated = useSelector(
     (state) => state.authenticationDetails.isloggedIn
   );
 
-  
+  const fetchUserData = async () => {
+    try {
+      dispatch(setLoading(true));
+     const response = await userDetails();
+      if (response?.status === 200) {
+        dispatch(userLoggedIn(response?.data?.data));
+      }
+    
+    } catch (error) {
+       console.log(" error while fetching the data",error)
+    }
+   finally{
+      dispatch(setLoading(false))
+   }
+ };
+ 
+   useEffect(()=>{
+     if(!isAuthenticated){
+        fetchUserData(); 
+     }
+   },)
   return (
     <div className="  grid  bg-zinc-700 mx-32  md:grid-cols-2 items-center  md:place-content-between  text-center">
       <div className=" md:order-2 w-64 my-5  md:w-96 self-center ">

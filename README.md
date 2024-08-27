@@ -64,6 +64,9 @@ i need to create model for users model  , chat model for  connected User , messa
     delete message 
     delete chat 
 
+
+- in any event  trigger by the user-> implememnt the function to cancel the action if user again trigger the event in 10sec again 
+- and write the logic to number of api call of an api
 )
 
 # error solution 

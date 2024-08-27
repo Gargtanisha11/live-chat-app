@@ -4,7 +4,7 @@ const configureSlice=createSlice({
     name:"configuration",
     initialState:{
         isChatClicked:false,
-        isLoading:true,
+        isLoading:false,
     },
     reducers:{
         openChatRoom:(state)=>{
