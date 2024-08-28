@@ -26,12 +26,11 @@ const SearchUser = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button className=" w-[15%] px-4 hover:bg-white py-1 mx-1">
+      <button className=" w-[15%] px-4 hover:bg-white py-1 mx-1" onClick={handleSearch} >
         <img
           className=""
           src={SEARCH_LOGO}
           alt=" search"
-          onClick={handleSearch}
         />
       </button>
       

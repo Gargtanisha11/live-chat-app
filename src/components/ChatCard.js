@@ -17,33 +17,30 @@ const ChatCard = ({ chat }) => {
   const timeStamp = chat?.lastMessage[0]?.updatedAt;
   const unread_count = 1;
   const sendingTime = nearestTime(timeStamp);
-  const { participants } = chat;
-  let userName;
-  let userId;
-  let avatarUrl;
+  const { participants } = chat; 
+  let otherUserData= {};
 
   if (participants[0].userName !== currentUserName) {
-    userName = participants[0].userName;
-    userId= participants[0]._id;
-    avatarUrl = participants[0].avatar;
+    otherUserData=participants[0];
   } else {
-    userName = participants[1].userName;
-    userId= participants[1]._id;
-    avatarUrl = participants[1].avatar;
+    otherUserData=participants[1];
   }
+ 
+
 
   const handleClickChatCard = async () => {
-    dispatch(openChatRoom());
     try {
       dispatch(setLoading(true))
       if(!allChatMsg[chat?._id]) {
         const response = await getChatMessages(chat._id);
         if (response.status === 200) {
           dispatch(pushChatMsg({ [chat?._id]: response?.data?.data }));
+
         }
       } 
        dispatch(changeChatId(chat?._id));
-       dispatch(addOtherUserId(userId))
+       dispatch(addOtherUserId(otherUserData))
+       dispatch(openChatRoom());
 
 
     } catch (error) {
@@ -63,11 +60,11 @@ const ChatCard = ({ chat }) => {
       <div className=" flex flex-row   ">
         <img
           className="h-10 w-10 rounded-full "
-          src={avatarUrl}
+          src={otherUserData?.avatar}
           alt="user avatar"
         />
         <div className=" text-zinc-400 mx-2 text-left ">
-          <h1 className=" font-bold ">{userName}</h1>
+          <h1 className=" font-bold ">{otherUserData?.userName}</h1>
           <h5 className=" overflow-hidden truncate w-36 h-8">{lastMessage}</h5>
         </div>
       </div>

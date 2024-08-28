@@ -56,8 +56,9 @@ i need to create model for users model  , chat model for  connected User , messa
 - implement the api for creating chat (
    make an input box to search for searching the user find username or email id ✅
    create searchUser function  at backend in user controller ✅
-   it have a list of the user with create chat button
-   on click  open chat room  with that user 
+   it have a list of the user with create chat button ✅
+   if alreadyyy have chat with thet user then open chat room with user ✅
+   on click  open chat room  with that user ✅
   )
 - implement websocket at backend (
     send message 
@@ -68,6 +69,11 @@ i need to create model for users model  , chat model for  connected User , messa
 - in any event  trigger by the user-> implememnt the function to cancel the action if user again trigger the event in 10sec again 
 - and write the logic to number of api call of an api
 )
+
+# 30 august 
+- change the user details,update password 
+- delete the chat 
+
 
 # error solution 
 1. getting error while getto=ing the userdetails beacause not passed the withcredential  parameter in third argument 

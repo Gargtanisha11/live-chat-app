@@ -21,22 +21,11 @@ const ChatRoom=()=>{
   }
   
 
-if(isChatClick){
-  if(  chatMsg[0]?.receiver?._id === otherUserID){
-      data = chatMsg[0]?.receiver;
-  }
-  else {
-     data = chatMsg[0]?.sender ;
-  }
-}
-     
-  
-
     return <div className={isChatClick ?" border border-l border-r-0 border-t-0 border-b-0  border-zinc-500 flex w-full md:w-[50%] lg:w-[70%] h-[84.5vh] ":" border border-l border-r-0 border-t-0 border-b-0  border-zinc-500 hidden md:flex md:w-[50%] lg:w-[70%] h-[84.5vh] "}>
      { !isChatClick 
        ? <img className="w-52 h-52 mx-96 my-32" src={BODY_CHAT_IMG} alt=" to show chatting " />
        : <div className="w-full"> 
-            <ChatterProfile userName={data?.userName} avatar ={data?.avatar}/>
+            <ChatterProfile userName={otherUserID?.userName} avatar ={otherUserID?.avatar}/>
             <ChattingSpace chatMsg ={ chatMsg}/>
             <SendingBox/>
         </div>

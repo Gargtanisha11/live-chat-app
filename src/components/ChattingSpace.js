@@ -5,8 +5,6 @@ const ChattingSpace=({chatMsg})=>{
   const currentUserName = useSelector(
     (state) => state.authenticationDetails.userDetails
   )._id;
-  console.log( currentUserName);
-  console.log(chatMsg);
 
     return <div className=" h-[90%] md:h-[80%] bg-zinc-600 grid pt-2 overflow-y-scroll" >
 

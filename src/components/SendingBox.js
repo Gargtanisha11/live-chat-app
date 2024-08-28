@@ -12,11 +12,17 @@ const SendingBox=()=>{
 
     
   const sendMessage = async()=>{
-    console.log(" hee;p")
-   // dispatch(setLoading(true));
-    const response= await sendChatMessage(openChatId,otherUserId,content);
-    console.log( "hello" );
-    dispatch(setLoading(false));
+    dispatch(setLoading(true));
+    try { 
+        const response= await sendChatMessage(openChatId,otherUserId?._id,content);
+        setContent("")
+    } catch (error) {
+        alert(error);
+    }
+    finally{
+        dispatch(setLoading(false));
+
+    }
   }
 
    if(isLoading ){
