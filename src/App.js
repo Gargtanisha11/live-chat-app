@@ -1,18 +1,17 @@
-
-import { RouterProvider } from 'react-router-dom';
-import './App.css';
-import router from "./Router.js"
-import { Provider } from 'react-redux';
-import liveChatStore from './redux/liveChatStore.js';
-
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import router from "./Router.js";
+import { Provider } from "react-redux";
+import liveChatStore from "./redux/liveChatStore.js";
+import { SocketProvider, useSocket } from "./contexts/SocketContext.js";
+import io from "socket.io-client";
 
 function App() {
   return (
-    // <div className="App min-h-screen">
-    //    <Home/>
-    // </div>
-     <Provider store={liveChatStore}>
-    <RouterProvider router={router}/>
+    <Provider store={liveChatStore}>
+      <SocketProvider>
+      <RouterProvider router={router} />
+      </SocketProvider>
     </Provider>
   );
 }

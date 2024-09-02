@@ -4,7 +4,7 @@ const authenticationDetailSlice=createSlice({
     name:" authenticationDetail",
     initialState:{
         isloggedIn:false,
-        userDetails:{},
+        userDetails:null,
     },
     reducers:{
         userLoggedIn :(state,action)=>{

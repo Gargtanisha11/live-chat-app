@@ -80,3 +80,12 @@ i need to create model for users model  , chat model for  connected User , messa
 1. getting error while logged out because i pass withcredential in place of body 
     err -  const response = await axios.post(USER_LOGOUT,{withCredentials:true});
     correct -const response = await axios.post(USER_LOGOUT,{},{withCredentials:true});
+
+
+
+
+
+# socket.io-client for frontend 
+ create a useSocket custom hook using useContext,
+ create a SocketProvider component 
+ wrap app inside SocketProvider

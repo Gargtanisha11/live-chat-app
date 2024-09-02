@@ -6,9 +6,9 @@ const ChattingSpace=({chatMsg})=>{
     (state) => state.authenticationDetails.userDetails
   )._id;
 
-    return <div className=" h-[90%] md:h-[80%] bg-zinc-600 grid pt-2 overflow-y-scroll" >
 
-
+  
+    return <div className=" h-[90%] md:h-[80%]  bg-zinc-600 grid pt-2 overflow-y-scroll" >
       {
         chatMsg.map((msg)=>(
             msg?.sender?._id !== currentUserName  ? (<div key={msg?._id} className=" grid text-left  h-fit w-max rounded-xl rounded-tl-none bg-zinc-800 px-4 pt-4 m-2 text-zinc-200 ">

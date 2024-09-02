@@ -35,7 +35,7 @@ const Body = () => {
      if(!isAuthenticated){
         fetchUserData(); 
      }
-   },)
+   },[])
   return (
     <div className="  grid  bg-zinc-700 mx-32  md:grid-cols-2 items-center  md:place-content-between  text-center">
       <div className=" md:order-2 w-64 my-5  md:w-96 self-center ">

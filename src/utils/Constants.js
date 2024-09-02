@@ -23,6 +23,10 @@ export const Navbar_opt = ["Home", "Chats", "About", "Contact", "Setting"];
 
 export const ChatterProfileOpt=["View Contact","Media links and docs",'Search',"More"];
 
+export const CHAT_EVENT_NUM=Object.freeze({
+  RECEIVE_MSG:"receiveMSg"
+})
+
 // mock data for showing the chat list
 export const DUMMYDATA_CHATS = [
   {

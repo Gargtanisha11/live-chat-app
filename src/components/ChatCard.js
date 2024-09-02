@@ -31,13 +31,12 @@ const ChatCard = ({ chat }) => {
   const handleClickChatCard = async () => {
     try {
       dispatch(setLoading(true))
-      if(!allChatMsg[chat?._id]) {
         const response = await getChatMessages(chat._id);
         if (response.status === 200) {
           dispatch(pushChatMsg({ [chat?._id]: response?.data?.data }));
 
         }
-      } 
+      
        dispatch(changeChatId(chat?._id));
        dispatch(addOtherUserId(otherUserData))
        dispatch(openChatRoom());
