@@ -28,10 +28,10 @@ import { errors } from "../statusCode/error";
      console.log( "heelo" )
            try {
              const response = await axios.post(SEND_MSG+chatId+"/"+receiverId,{content:content},{withCredentials:true});
-             console.log( response);
+             return response
            } catch (error) {
-             console.log( error);
-           }  
+             return errors[error?.response?.status] ;
+         }  
   }
 
  const createChat=async(receiverId)=>{

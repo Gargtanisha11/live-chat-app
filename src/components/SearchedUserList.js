@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { createChat, getChatMessages } from "../hooks/chats";
 import { CREATE_CHAT } from "../utils/Constants";
-import { openChatRoom, setLoading } from "../redux/configureSlice";
-import { addOtherUserId, changeChatId } from "../redux/chatSlice";
+import { openChatRoom,  } from "../redux/configureSlice";
+import { addOtherUserId, addSingleChat, changeChatId } from "../redux/chatSlice";
 import { pushChatMsg } from "../redux/messageSlice";
+
 
 const SearchedUserList = ({ userList, setShowList }) => {
   const chatMsg = useSelector((state) => state.chatMsg.message);
-  const isLoading = useSelector((state) => state.configuration.isLoading);
   const dispatch = useDispatch();
 
   const handleClick = async (receiverId) => {
@@ -15,12 +15,13 @@ const SearchedUserList = ({ userList, setShowList }) => {
     setShowList(false);
 
     try {
-      dispatch(setLoading(true));
       const response = await createChat(receiverId);
       if (response.status === 200) {
         const chatId = response?.data?.data[0]?._id;
         if (response?.data?.data[0]?.message.length === 0) {
+          dispatch(addSingleChat(response?.data?.data[0]))
           dispatch(pushChatMsg({ [chatId]: [] }));
+          
         } else if (!chatMsg.chatId) {
           const msg = await getChatMessages(chatId);
           msg?.status === 200 &&
@@ -32,9 +33,7 @@ const SearchedUserList = ({ userList, setShowList }) => {
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      dispatch(setLoading(false));
-    }
+    } 
   };
 
   return (
@@ -46,7 +45,7 @@ const SearchedUserList = ({ userList, setShowList }) => {
             <h1>{user?.userName}</h1>
           </div>
           <button onClick={() => handleClick(user._id)}>
-            <img src={CREATE_CHAT} />
+            <img src={CREATE_CHAT} alt="chat" />
           </button>
         </div>
       ))}

@@ -51,7 +51,7 @@ i need to create model for users model  , chat model for  connected User , messa
   and map it with  time stamp ✅
 )
 
-# 24 august - 30 august 
+# 24 august - 30 august ( completed till 2 sept )
 - implement the api for send the message ✅
 - implement the api for creating chat (
    make an input box to search for searching the user find username or email id ✅
@@ -61,26 +61,27 @@ i need to create model for users model  , chat model for  connected User , messa
    on click  open chat room  with that user ✅
   )
 - implement websocket at backend (
-    send message 
-    delete message 
-    delete chat 
-
-
-- in any event  trigger by the user-> implememnt the function to cancel the action if user again trigger the event in 10sec again 
-- and write the logic to number of api call of an api
+    send message ✅
+- and write the logic to number of api call of an api✅
 )
 
-# 30 august 
-- change the user details,update password 
-- delete the chat 
+# 3sept - 10 sept
+(
+  - page should not reload again ✅
+  - when message send update last message and if chat is new then add chat to the chatlist slice 
+  - functionality  for update the functionality and update the password 
+  - group the chat message according to there date 
+  - delete message ❌
+  - delete chat ❌
+)
 
 
 # error solution 
 1. getting error while getto=ing the userdetails beacause not passed the withcredential  parameter in third argument 
-1. getting error while logged out because i pass withcredential in place of body 
+2. getting error while logged out because i pass withcredential in place of body 
     err -  const response = await axios.post(USER_LOGOUT,{withCredentials:true});
     correct -const response = await axios.post(USER_LOGOUT,{},{withCredentials:true});
-
+3. when message send chat list also render again 
 
 
 

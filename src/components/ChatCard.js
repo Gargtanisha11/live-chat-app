@@ -1,20 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { nearestTime } from "../utils/helperFunc";
-import { openChatRoom, setLoading } from "../redux/configureSlice";
+import { openChatRoom,  } from "../redux/configureSlice";
 import { changeChatId,addOtherUserId } from "../redux/chatSlice";
 import { getChatMessages } from "../hooks/chats";
 import { pushChatMsg } from "../redux/messageSlice";
 
 const ChatCard = ({ chat }) => {
   //const { user_name, avatar_url, last_message, unread_count, timestamp } = chat;
+  console.log(chat)
   const dispatch = useDispatch();
   const currentUserName = useSelector(
     (state) => state.authenticationDetails.userDetails
   ).userName;
-  const allChatMsg = useSelector((state) => state.chatMsg.message);
 
-  const lastMessage = chat?.lastMessage[0]?.content;
-  const timeStamp = chat?.lastMessage[0]?.updatedAt;
+
+  const lastMessage = chat?.lastMessage?.content;
+  const timeStamp = chat?.lastMessage?.updatedAt;
   const unread_count = 1;
   const sendingTime = nearestTime(timeStamp);
   const { participants } = chat; 
@@ -30,13 +31,15 @@ const ChatCard = ({ chat }) => {
 
   const handleClickChatCard = async () => {
     try {
-      dispatch(setLoading(true))
-        const response = await getChatMessages(chat._id);
-        if (response.status === 200) {
-          dispatch(pushChatMsg({ [chat?._id]: response?.data?.data }));
-
-        }
-      
+   if (chat.message.length !== 0) {         
+         const response = await getChatMessages(chat._id);
+         if (response.status === 200) {
+           dispatch(pushChatMsg({ [chat?._id]: response?.data?.data }));
+         }  
+   }
+   else{
+    dispatch(pushChatMsg({ [chat?._id]: [] }));
+   }
        dispatch(changeChatId(chat?._id));
        dispatch(addOtherUserId(otherUserData))
        dispatch(openChatRoom());
@@ -45,10 +48,7 @@ const ChatCard = ({ chat }) => {
     } catch (error) {
       alert(error);
     }
-    finally{
-      dispatch(setLoading(false));
-
-    }
+    
   };
 
   return (

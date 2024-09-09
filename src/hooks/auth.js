@@ -45,6 +45,7 @@ const login = async(data)=>{
 const logout=async()=>{
   try {
     const response = await axios.post(USER_LOGOUT,{},{withCredentials:true});
+    
     alert(" user loggedout ")
     return response;
   } catch (error) {

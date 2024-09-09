@@ -13,7 +13,7 @@ const authenticationDetailSlice=createSlice({
         },
         userLoggedOut:(state)=>{
             state.isloggedIn=false;
-            state.userDetails={}
+            state.userDetails=null
         },
         
     }

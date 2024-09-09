@@ -1,57 +1,24 @@
-// import { useEffect, useState } from "react";
-// import { BODY_CHAT_IMG, CHAT_EVENT_NUM } from "../utils/Constants";
-// import ChatterProfile from "./ChatterProfile";
-// import ChattingSpace from "./ChattingSpace";
-// import SendingBox from "./SendingBox";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useSocket } from "../contexts/SocketContext";
-// import { pushChatMsg, pushSingleMsg } from "../redux/messageSlice";
 
 
-import { useEffect, useState } from "react";
-import { BODY_CHAT_IMG, CHAT_EVENT_NUM } from "../utils/Constants";
+import { useEffect, } from "react";
+import { BODY_CHAT_IMG, } from "../utils/Constants";
 import ChatterProfile from "./ChatterProfile";
 import ChattingSpace from "./ChattingSpace";
 import SendingBox from "./SendingBox";
-import { useDispatch, useSelector } from "react-redux";
-import { useSocket } from "../contexts/SocketContext";
-import { pushChatMsg, pushSingleMsg } from "../redux/messageSlice";
+import {useSelector } from "react-redux";
 
 const ChatRoom = () => {
   const isChatClick = useSelector((state) => state.configuration.isChatClicked);
   const allChatMsg = useSelector((state) => state.chatMsg.message);
   const openChat = useSelector((state) => state.chat.openChatId);
   const otherUserID = useSelector((state) => state.chat.otherUserId);
-  const isLoading = useSelector((state) => state.configuration.isLoading);
-  const [chatMsg, setChatMsg] = useState(allChatMsg[openChat]);
 
-
-  // useEffect hook to manage the socket event listener
-  // useEffect(() => {
-  //   console.log(socket)
-  //   if (socket) {
-  //     const handleReceiveMsg = (msg) => {
-  //       console.log("Message received:", msg);
-  //       dispatch(pushSingleMsg({ chatId: msg[0].chat, chatMsg: msg }));
-  //     };
-
-  //     // Register the event listener
-  //     socket.on(CHAT_EVENT_NUM.RECEIVE_MSG,(msg)=>handleReceiveMsg(msg));
-
-  //     // Cleanup function to remove the event listener
-  //     return () => {
-  //       socket.off(CHAT_EVENT_NUM.RECEIVE_MSG,handleReceiveMsg);
-  //     };
-  //   }
-  // }, [socket]);
 
  useEffect(()=>{
     console.log( allChatMsg)
  },[allChatMsg])
 
-  if (isLoading && isChatClick) {
-    return <div>Loading chat room </div>;
-  }
+
 
   return (
     <div

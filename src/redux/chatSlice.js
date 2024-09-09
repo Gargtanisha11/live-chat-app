@@ -9,9 +9,6 @@ const chatSlice = createSlice({
 
     },
     reducers:{
-        addChat:(state,action)=>{
-            state.chat=action.payload
-        },
         clearChat:(state,action)=>{
             state.chat=action.payload
         },
@@ -21,9 +18,22 @@ const chatSlice = createSlice({
         changeChatId:(state,action)=>{
             state.openChatId=action.payload;
           },
-        
+        addSingleChat:(state,action)=>{
+            let chat =  action.payload;
+            let chatId = action.payload._id;
+            let payload= {[chatId]:chat};
+            state.chat= {...state.chat, ...payload };
+        },
+        addLastMessage:(state,action)=>{
+           const chatId= action.payload.chatId;
+           const lastMessage = action.payload.lastMessage
+           let updatedState= state.chat;
+           updatedState[chatId].lastMessage=lastMessage
+           updatedState[chatId].message.push(lastMessage._id)
+           state.chat ={...updatedState}
+        }
     }
 })
 
-export const {addChat,clearChat,addOtherUserId,changeChatId} = chatSlice.actions
+export const {clearChat,addOtherUserId,changeChatId,addSingleChat,addLastMessage} = chatSlice.actions
 export default chatSlice.reducer;

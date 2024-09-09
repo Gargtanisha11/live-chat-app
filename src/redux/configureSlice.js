@@ -4,18 +4,14 @@ const configureSlice=createSlice({
     name:"configuration",
     initialState:{
         isChatClicked:false,
-        isLoading:false,
+        openedTab:"Home"
     },
     reducers:{
         openChatRoom:(state)=>{
             state.isChatClicked=true;
         },
-       
-        setLoading:(state,action)=>{
-            state.isLoading =action.payload;
-        },
     }
 })
 
-export const {openChatRoom,setLoading}=configureSlice.actions;
+export const {openChatRoom,setTab}=configureSlice.actions;
 export default configureSlice.reducer;

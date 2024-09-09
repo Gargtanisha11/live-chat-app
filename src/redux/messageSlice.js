@@ -12,7 +12,7 @@ const messageSlice = createSlice({
         pushSingleMsg:(state,action)=>{
             console.log(action.payload);
             const chatId =action.payload.chatId;
-            console.log(chatId);
+
             let msg = state.message[chatId] || []
             msg.push(action.payload.chatMsg)
             const payload = {[chatId]:msg}

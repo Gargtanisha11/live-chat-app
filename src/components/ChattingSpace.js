@@ -1,14 +1,22 @@
 import { useSelector } from "react-redux";
 import { nearestTime } from "../utils/helperFunc";
+import { useEffect, useRef } from "react";
  
 const ChattingSpace=({chatMsg})=>{
+  console.log(chatMsg)
   const currentUserName = useSelector(
     (state) => state.authenticationDetails.userDetails
   )._id;
+   const currentScrollBottom = useRef();
+  const scrollToBottom =()=>{
+    currentScrollBottom.current.scrollTop= currentScrollBottom.current.scrollHeight;
+  }
 
-
+ useEffect(()=>{
+       scrollToBottom()
+ },[chatMsg])
   
-    return <div className=" h-[90%] md:h-[80%]  bg-zinc-600 grid pt-2 overflow-y-scroll" >
+    return <div className=" h-[90%] md:h-[80%]  bg-zinc-600 grid pt-2 overflow-y-scroll" ref={currentScrollBottom} >
       {
         chatMsg.map((msg)=>(
             msg?.sender?._id !== currentUserName  ? (<div key={msg?._id} className=" grid text-left  h-fit w-max rounded-xl rounded-tl-none bg-zinc-800 px-4 pt-4 m-2 text-zinc-200 ">

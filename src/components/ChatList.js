@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ChatCard from "./ChatCard";
 import { useEffect,useState } from "react";
 import { getChats } from "../hooks/chats";
-import { addChat } from "../redux/chatSlice";
+import { addSingleChat } from "../redux/chatSlice";
 import SearchUser from "./SearchUser";
 
 
@@ -17,7 +17,9 @@ const ChatList=()=>{
        try {
         const response = await  getChats();
          if(response?.status === 200){
-            dispatch(addChat(response?.data?.data));
+            response?.data?.data.map((chat)=>{
+              dispatch(addSingleChat(chat));
+            })
          }
        } catch (error) {
        }
@@ -27,7 +29,7 @@ const ChatList=()=>{
       }
     useEffect(()=>{
       fetchData();
-    },[])
+    },[isChatClick])
     
    if(isLoading) {
      return <div>Loading chat...</div>
@@ -36,7 +38,7 @@ const ChatList=()=>{
     return <div className={!isChatClick ? "w-full md:w-[50%] lg:w-[30%] h-[85vh]  overflow-y-scroll no-scrollbar  " :"hidden md:flex flex-col w-full md:w-[50%] lg:w-[30%] h-[85vh]  overflow-y-scroll no-scrollbar "}>
          <SearchUser/>
       {
-        chat.map((chat)=>(
+        Object.values(chat).map((chat)=>(
           <ChatCard key={chat?._id} chat={chat} />
         ))
       }

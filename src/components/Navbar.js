@@ -5,8 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationDetailSlice";
 import { logout } from "../hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { SocketProvider, useSocket } from "../contexts/SocketContext";
 
 const Navbar = () => {
+  const socket = useSocket();
+
   const navigate = useNavigate();
   const isAuthenticated = useSelector(state=> state.authenticationDetails.isloggedIn) ;
   const  [selectOpt,setSelectOpt] =useState(false);
@@ -39,6 +42,7 @@ const handleClickOpt=(opt)=>{
   const response = await logout();
   
   if(response?.status ===200){
+    socket.disconnect()
     toggleSelectOpt();
     dispatch(userLoggedOut())
   }
