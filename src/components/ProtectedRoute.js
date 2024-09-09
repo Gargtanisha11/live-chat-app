@@ -9,7 +9,7 @@ import { userLoggedIn } from "../redux/authenticationDetailSlice";
 //  react component can't be asynchronous function 
 const ProtectedRoute = () => {
   
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(true);
   const isAuthenticated = useSelector(state=> state.authenticationDetails.isloggedIn);
   const dispatch = useDispatch();
 
@@ -32,10 +32,9 @@ const ProtectedRoute = () => {
 };
 
   useEffect(()=>{
-    if(!isAuthenticated){
-       fetchUserData(); 
-    }
+    fetchUserData()
   },[isAuthenticated])
+
   if(isLoading){
     return (<div>Loading....</div>)
   }
@@ -43,6 +42,7 @@ const ProtectedRoute = () => {
   if (!isAuthenticated) {
     return <Navigate to="/" replace />;
   }
+
   return <Outlet />;
 };
 
