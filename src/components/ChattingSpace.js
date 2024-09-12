@@ -3,7 +3,7 @@ import { nearestTime } from "../utils/helperFunc";
 import { useEffect, useRef } from "react";
  
 const ChattingSpace=({chatMsg})=>{
-  console.log(chatMsg)
+
   const currentUserName = useSelector(
     (state) => state.authenticationDetails.userDetails
   )._id;

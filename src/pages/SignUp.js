@@ -56,7 +56,7 @@ const SignUp = () => {
     } else {
       setIsError(false);
       setError("");
-      const response = await register(data);
+      await register(data);
       handleReset(e);
     }
   };

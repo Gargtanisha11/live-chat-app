@@ -7,7 +7,7 @@ import { pushChatMsg } from "../redux/messageSlice";
 
 const ChatCard = ({ chat }) => {
   //const { user_name, avatar_url, last_message, unread_count, timestamp } = chat;
-  console.log(chat)
+
   const dispatch = useDispatch();
   const currentUserName = useSelector(
     (state) => state.authenticationDetails.userDetails

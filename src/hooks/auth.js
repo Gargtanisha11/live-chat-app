@@ -1,6 +1,6 @@
 import axios from "axios";
 import { errors } from "../statusCode/error";
-import { FIND_USER, USER_DETAILS, USER_LOGIN, USER_LOGOUT, USER_REGISTER } from "../utils/ApiUrl";
+import { FIND_USER, UPDATE_USERDETAILS, USER_DETAILS, USER_LOGIN, USER_LOGOUT, USER_REGISTER } from "../utils/ApiUrl";
 
 
 
@@ -57,7 +57,6 @@ const logout=async()=>{
 const userDetails=async()=>{
   try {
     const response =await axios.get(USER_DETAILS,{withCredentials:true});
-    console.log(response)
     return response;
   } catch (error) {
      const errMessage= errors[error?.response?.status];
@@ -75,4 +74,18 @@ const searchUser= async ( userName)=>{
   }
 }
 
-export { register, login, userDetails,logout,searchUser };
+const updateUser =async ( data)=>{
+  console.log( data);
+  if(!data){
+    return;
+  }
+  try {
+    const response = await axios.post(UPDATE_USERDETAILS,data,{withCredentials:true})
+    return response;
+  } catch (error) {
+     alert("NOT ABLE TO CHANGE THE USER DETAILS");
+     return error;
+  }
+}
+
+export { register, login, userDetails,logout,searchUser,updateUser };

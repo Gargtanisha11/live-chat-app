@@ -18,4 +18,11 @@ const validateEmail=(email)=>{
     const result = password.match(passwordRegex);
     return result != null ? true : false; 
  }
-export{ validateName,validateEmail,validatePassword }
+
+ const validateImage=(type)=>{
+  if(type==="image/png"|| type==="image/jpg") return true;
+  else{
+    return false;
+  }
+ }
+export{ validateName,validateEmail,validatePassword, validateImage }

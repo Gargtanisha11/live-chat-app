@@ -68,8 +68,12 @@ i need to create model for users model  , chat model for  connected User , messa
 # 3sept - 10 sept
 (
   - page should not reload again ✅
-  - when message send update last message and if chat is new then add chat to the chatlist slice 
-  - functionality  for update the functionality and update the password 
+  - when message send update last message and if chat is new then add chat to the chatlist slice ✅
+  - functionality  for update the profile and update the password (
+     "setting" have list of multiple opt with profile option✅
+     in profile option have a page to change ✅
+     send the data to backend 
+  )
   - group the chat message according to there date 
   - delete message ❌
   - delete chat ❌

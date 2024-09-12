@@ -1,6 +1,3 @@
-
-
-import { useEffect, } from "react";
 import { BODY_CHAT_IMG, } from "../utils/Constants";
 import ChatterProfile from "./ChatterProfile";
 import ChattingSpace from "./ChattingSpace";
@@ -12,11 +9,6 @@ const ChatRoom = () => {
   const allChatMsg = useSelector((state) => state.chatMsg.message);
   const openChat = useSelector((state) => state.chat.openChatId);
   const otherUserID = useSelector((state) => state.chat.otherUserId);
-
-
- useEffect(()=>{
-    console.log( allChatMsg)
- },[allChatMsg])
 
 
 

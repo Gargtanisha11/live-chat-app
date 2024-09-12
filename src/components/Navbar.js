@@ -5,12 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationDetailSlice";
 import { logout } from "../hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { SocketProvider, useSocket } from "../contexts/SocketContext";
+import { useSocket } from "../contexts/SocketContext";
 
 const Navbar = () => {
   const socket = useSocket();
 
   const navigate = useNavigate();
+  const  userDetails = useSelector(state=>state.authenticationDetails.userDetails)
   const isAuthenticated = useSelector(state=> state.authenticationDetails.isloggedIn) ;
   const  [selectOpt,setSelectOpt] =useState(false);
   const toggleSelectOpt=()=>{
@@ -21,7 +22,6 @@ const Navbar = () => {
 
  
 const handleClickOpt=(opt)=>{
-  console.log(opt);
   switch (opt) {
     case "Home":
       navigate("/")
@@ -31,6 +31,9 @@ const handleClickOpt=(opt)=>{
       break;
     case "Login":
       navigate("/login")
+      break;
+    case "Setting":
+      navigate("/profile")
       break;
     default:
       navigate("/")
@@ -48,7 +51,7 @@ const handleClickOpt=(opt)=>{
   }
  }
   return (
-    <div className="h-10  md:h-24 w-screen text-white bg-zinc-400 flex flex-row place-content-between ">
+    <div className="h-10  md:h-24 w-screen text-white bg-zinc-400 flex flex-row place-content-between  ">
       <div className="flex flex-row items-center">
         <div className=" h-8 w-8 md:h-20 md:w-20 mx-12 ">
           <img
@@ -64,6 +67,9 @@ const handleClickOpt=(opt)=>{
 
       <div className=" hidden md:flex flex-row px-5 items-center md:text-lg lg:text-xl mr-5 ">
         {
+          isAuthenticated && <img className=" h-10 w-10 rounded-full mt-1 mx-2" src={userDetails?.avatar} alt="user"/>
+        }
+        {
           Navbar_opt.map((option)=>
           (<div className="md:mx-2 lg:mx-5 hover:text-zinc-600 " key={option} onClick={()=>handleClickOpt(option)}>{ option}</div>))
         }
@@ -74,9 +80,12 @@ const handleClickOpt=(opt)=>{
           <AuthenticateButton name="Log Out" />
         )}
       </div>
-      <div className=" md:hidden mr-5   h-5 self-center text-black z-10">
+      <div className=" md:hidden mr-5 flex flex-row   h-7 self-center text-black z-10">
+        {
+          isAuthenticated && <img className=" w-8 h-8 mx-2 mb-1 rounded-full " src={userDetails?.avatar} alt="user"/>
+        }
         <label htmlFor="navbar opt"  onClick={toggleSelectOpt} >
-          <img src={HAMBURGER_MENU} alt=" hamburger menu" />
+          <img className=" mx-2 h-8" src={HAMBURGER_MENU} alt=" hamburger menu" />
         </label>
         {selectOpt && <select name="navbar opt " id="navbar opt" size={Navbar_opt.length+1} >
           {Navbar_opt.map((option) => (

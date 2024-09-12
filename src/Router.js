@@ -1,13 +1,14 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-import Login from "./components/Login";
-import Home from "./components/Home.js";
+import Login from "./pages/Login.js";
+import Home from "./pages/Home.js";
 
 import ProtectedRoute from "./components/ProtectedRoute.js";
 import Body from "./components/Body.js";
-import ChatContainer from "./components/ChatContainer.js";
-import SignUp from "./components/SignUp.js";
+import SignUp from "./pages/SignUp.js";
+import ChatList from "./components/ChatList.js";
+import Profile from "./components/Profile.js";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +21,12 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/myChats",
-            element: <ChatContainer />,
+            element: <ChatList />,
           },
+         {
+          path:"/profile",
+          element:<Profile/>
+         }
         ],
       },
     ],

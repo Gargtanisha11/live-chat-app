@@ -4,7 +4,6 @@ import { io } from "socket.io-client";
 import { CHAT_EVENT_NUM } from "../utils/Constants";
 import { pushSingleMsg } from "../redux/messageSlice";
 import { addLastMessage } from "../redux/chatSlice";
-import { userLoggedOut } from "../redux/authenticationDetailSlice";
 
 const getSocket = (userId) => {
   return io("http://localhost:8000", {
@@ -30,7 +29,6 @@ const dispatch= useDispatch()
 
   //console.log(userDetails)
   useEffect(() => {
-    console.log(userDetails)
     if (userDetails && !socket) {
       const newSocket = getSocket(userDetails._id);
       setSocket(newSocket);
@@ -39,7 +37,6 @@ const dispatch= useDispatch()
       });
 
      newSocket.on(CHAT_EVENT_NUM.RECEIVE_MSG,(msg)=>{
-        console.log(msg)
         dispatch(pushSingleMsg({chatId:msg[0].chat,chatMsg:msg[0]}))
         dispatch(addLastMessage({chatId:msg[0].chat,lastMessage:msg[0]}))
      })

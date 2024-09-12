@@ -16,7 +16,6 @@ const Body = () => {
   const fetchUserData = async () => {
     try {
      const response = await userDetails();
-      console.log(response)
       if (response?.status === 200) {
         dispatch(userLoggedIn(response?.data?.data));
       }
