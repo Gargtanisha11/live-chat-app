@@ -71,9 +71,9 @@ const Profile = () => {
 
   return (
     <div className="w-full  ">
-      <div className="flex w-[50%] h-[35%] mx-[33%] my-2">
+      <div className="flex w-[50%] h-[35%] mx-[33%] my-4 ">
         <img
-          className=" "
+          className=" rounded-full "
           src={userDetails?.avatar}
           alt="avatar"
         />

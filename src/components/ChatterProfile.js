@@ -3,11 +3,38 @@ import {
   ChatterProfileOpt,
   MENU_LOGO,
 } from "../utils/Constants";
+import {useDispatch} from "react-redux"
+import { deleteChat } from "../hooks/chats";
+import { clearAChat } from "../redux/chatSlice";
+import { clearChatMsg } from "../redux/messageSlice";
+import { closeChatRoom} from "../redux/configureSlice";
 
-const ChatterProfile = ({userName,avatar}) => {
-   const [isChattingProfileOptShows, setIsChattingProfileOptShows]= useState(false);
+const ChatterProfile = ({userName,avatar,chatId}) => {
+   const [isChattingProfileOptShows, setIsChattingProfileOptShows]= useState(false)
+ const dispatch= useDispatch()
+
    const handleIsChattingProflieOptShows=()=>{
     setIsChattingProfileOptShows(!isChattingProfileOptShows);
+    
+   }
+  
+  const handleOpt=async(key)=>{
+     console.log( key);
+     switch (key) {
+      case "Delete":
+        const response = await deleteChat(chatId);
+        if(response?.status===200) {
+          dispatch(clearAChat(chatId))
+          dispatch(clearChatMsg(chatId))
+          dispatch(closeChatRoom())
+        }
+        console.log(response);
+        break;
+     
+      default:
+        break;
+     }
+     handleIsChattingProflieOptShows()
    }
 
 
@@ -34,11 +61,10 @@ const ChatterProfile = ({userName,avatar}) => {
           <label htmlFor={ChatterProfileOpt}>
             <img src={MENU_LOGO} className="h-10 w-5 " alt=" three dot menu " onClick={handleIsChattingProflieOptShows}/>
           </label>
-
           { isChattingProfileOptShows && <select id={ChatterProfileOpt}name=" chatter profile options " size={ChatterProfileOpt.length} className="z-10 absolute   left-[60%] md:left-[85%]">
               {
                 ChatterProfileOpt.map((option)=>(
-                  <option key={option} onClick={handleIsChattingProflieOptShows}>{option}</option>
+                  <option key={option} onClick={()=>handleOpt(option)}>{option}</option>
                 ))
               }
             </select>

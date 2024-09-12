@@ -6,6 +6,11 @@ const messageSlice = createSlice({
         message:[]
     },
     reducers:{
+        clearChatMsg:(state,action)=>{
+           const chatMsg = state.message;
+           delete chatMsg[action.payload]
+           state.message={...chatMsg}
+        },
         pushChatMsg:(state,action)=>{
             state.message = {...state.message , ...action.payload};
         },
@@ -20,5 +25,5 @@ const messageSlice = createSlice({
     }
 })
 
-export const {pushChatMsg,pushSingleMsg} = messageSlice.actions;
+export const {pushChatMsg,pushSingleMsg,clearChatMsg} = messageSlice.actions;
 export default messageSlice.reducer;

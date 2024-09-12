@@ -72,11 +72,11 @@ i need to create model for users model  , chat model for  connected User , messa
   - functionality  for update the profile and update the password (
      "setting" have list of multiple opt with profile option✅
      in profile option have a page to change ✅
-     send the data to backend 
+     send the data to backend ✅
   )
   - group the chat message according to there date 
-  - delete message ❌
-  - delete chat ❌
+  - delete messaage❌
+  - delete chat ✅ (but not another side of the user )
 )
 
 

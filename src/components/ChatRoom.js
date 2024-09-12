@@ -32,6 +32,7 @@ const ChatRoom = () => {
             <ChatterProfile
               userName={otherUserID?.userName}
               avatar={otherUserID?.avatar}
+              chatId={openChat}
             />
             <ChattingSpace chatMsg={allChatMsg[openChat]} />
             <SendingBox />

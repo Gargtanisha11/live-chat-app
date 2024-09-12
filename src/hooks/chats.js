@@ -1,5 +1,5 @@
 import axios from "axios"
-import { CREATE_CHAT, GET_CHATS, GET_MSG, SEND_MSG } from "../utils/ApiUrl"
+import { CREATE_CHAT, DELETE_CHAT, GET_CHATS, GET_MSG, SEND_MSG } from "../utils/ApiUrl"
 import { errors } from "../statusCode/error";
 
  
@@ -47,4 +47,17 @@ import { errors } from "../statusCode/error";
     }
  }
 
-  export {getChats,getChatMessages,sendChatMessage,createChat};
+ const deleteChat = async(chatId)=>{
+   if(!chatId)  return ;
+   try {
+      const response = await axios.delete(DELETE_CHAT+chatId,{withCredentials:true});
+      console.log (response )
+      return response
+   } catch (error) {
+       console.log(error);
+       alert (" NOT ABLE TO DELETE THE CHAT ")
+       return error ;
+   }
+ }
+
+  export {getChats,getChatMessages,sendChatMessage,createChat,deleteChat};
