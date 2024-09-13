@@ -4,9 +4,10 @@ import { io } from "socket.io-client";
 import { CHAT_EVENT_NUM } from "../utils/Constants";
 import { pushSingleMsg } from "../redux/messageSlice";
 import { addLastMessage } from "../redux/chatSlice";
+import { server } from "../utils/ApiUrl";
 
 const getSocket = (userId) => {
-  return io("http://localhost:8000", {
+  return io(server, {
     withCredentials: true,
     query: { userId: userId },
     reconnection: true,
