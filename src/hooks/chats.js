@@ -37,6 +37,7 @@ import { errors } from "../statusCode/error";
  const createChat=async(receiverId)=>{
     console.log(receiverId);
     try {
+      console.log(CREATE_CHAT)
       const response= await axios.post(CREATE_CHAT+receiverId,{},{withCredentials:true});
       console.log( response);
       
