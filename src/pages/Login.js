@@ -30,6 +30,7 @@ const Login = () => {
     e.preventDefault();
     const response = await login(data);
     if(response?.status === 200){
+      console.log(response?.data?.data);
       dispatch(userLoggedIn(response?.data?.data));
       navigate("/");
     }
