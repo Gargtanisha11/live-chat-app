@@ -1,5 +1,5 @@
-const server = "http://localhost:8000/api/v1/"
-export const USER_LOGIN="http://localhost:8000/api/v1/user/loginUser"
+const server = process.env.URI
+export const USER_LOGIN=server+"/api/v1/user/loginUser"
 export const USER_REGISTER="http://localhost:8000/api/v1/user/register"
 export const USER_DETAILS ="http://localhost:8000/api/v1/user/getUserDetails"
 export const GET_CHATS = "http://localhost:8000/api/v1/chat/getAllChat"
@@ -9,4 +9,4 @@ export const SEND_MSG= "http://localhost:8000/api/v1/message/sendMessage/"
 export const FIND_USER = "http://localhost:8000/api/v1/user/findUser"
 export const CREATE_CHAT = "http://localhost:8000/api/v1/chat/createChat/"
 export const UPDATE_USERDETAILS= "http://localhost:8000/api/v1/user/updateAccountDetails"
-export const DELETE_CHAT = server + "chat/deleteChat/"
+export const DELETE_CHAT = server + "api/v1/chat/deleteChat/"
