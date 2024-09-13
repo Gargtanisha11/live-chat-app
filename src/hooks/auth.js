@@ -31,6 +31,8 @@ const register = async (data) => {
 
 const login = async(data)=>{
  try {
+   console.log(USER_LOGIN)
+   console.log(process.env.URI)
    const response = await axios.post(USER_LOGIN,data,{withCredentials:true}); // withCredential true is imp for set the cookie
    alert(" User loggedIn successfully")
    return response;
