@@ -1,6 +1,6 @@
 
-export const server = process.env.REACT_APP_URI
-export const USER_LOGIN=server+"api/v1/user/loginUser"
+export const server = process.env.REACT_APP_API_URI
+export const USER_LOGIN=server+"/api/v1/user/loginUser"
 export const USER_REGISTER=server+"/api/v1/user/register"
 export const USER_DETAILS =server+"/api/v1/user/getUserDetails"
 export const GET_CHATS = server+"/api/v1/chat/getAllChat"
