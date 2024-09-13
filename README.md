@@ -76,7 +76,8 @@ i need to create model for users model  , chat model for  connected User , messa
   )
   - group the chat message according to there date 
   - delete messaage❌
-  - delete chat ✅ (but not another side of the user )
+  - delete chat ✅ (but not another side of the user❌ )
+  - host the app first 
 )
 
 

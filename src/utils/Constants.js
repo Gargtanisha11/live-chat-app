@@ -24,7 +24,7 @@ export const Navbar_opt = ["Home", "Chats", "Contact", "Setting"];
 
 export const ChatterProfileOpt=["View Contact","Media links and docs","Delete","Search","More"];
 
-
+export const MessageOpt =["Copy","Delete"];
 
 export const CHAT_EVENT_NUM=Object.freeze({
   RECEIVE_MSG:"receiveMSg"
