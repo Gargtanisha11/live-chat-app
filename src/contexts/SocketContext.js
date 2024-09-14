@@ -50,7 +50,7 @@ const dispatch= useDispatch()
         setSocket(null);
       };
     }
-  }, [socket,userDetails]);
+  }, [userDetails]);
   return (
     <SocketContext.Provider value={socket}>
       {children}
