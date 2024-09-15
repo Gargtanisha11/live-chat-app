@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RESTE_ALL_STATE } from "../utils/Constants";
 
+
+const initialState={
+    message:[]
+}
+
 const messageSlice = createSlice({
     name:"chatMsg",
-    initialState:{
-        message:[]
-    },
+    initialState,
     reducers:{
         clearChatMsg:(state,action)=>{
            const chatMsg = state.message;
@@ -24,8 +27,10 @@ const messageSlice = createSlice({
         }
         
     },
-    extraReducers:(builder)=>{
-        builder.addCase(RESTE_ALL_STATE,()=>initialState)
+    extraReducers:(builder,state)=>{
+        builder.addCase(RESTE_ALL_STATE,()=>{
+
+        })
     }
 })
 

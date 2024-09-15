@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RESTE_ALL_STATE } from "../utils/Constants";
 
+ const initialState={
+    otherUserId:null,
+    chat:{},
+    openChatId:null,
+
+}
+
 const chatSlice = createSlice({
     name:"chats", 
-    initialState:{
-        otherUserId:null,
-        chat:{},
-        openChatId:null,
-
-    },
+    initialState,
     reducers:{
         clearAChat:(state,action)=>{
              const chat = state.chat;
