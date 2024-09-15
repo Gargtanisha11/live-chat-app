@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HAMBURGER_MENU, LiveChat_LOGO, Navbar_opt } from "../utils/Constants";
+import { HAMBURGER_MENU, LiveChat_LOGO, Navbar_opt, RESTE_ALL_STATE } from "../utils/Constants";
 import AuthenticateButton from "./AuthenticateButton";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "../redux/authenticationDetailSlice";
@@ -47,7 +47,7 @@ const handleClickOpt=(opt)=>{
   if(response?.status ===200){
     socket.disconnect()
     toggleSelectOpt();
-    dispatch(userLoggedOut())
+    dispatch({type:RESTE_ALL_STATE})
   }
  }
   return (

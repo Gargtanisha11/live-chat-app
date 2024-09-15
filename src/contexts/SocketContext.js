@@ -8,8 +8,8 @@ import { server } from "../utils/ApiUrl";
 
  
 
-const getSocket = (userId) => {
-  return io(server, {
+const getSocket =(userId) => {
+  return  io(server, {
     withCredentials: true,
     query: { userId: userId },
     reconnection: true,

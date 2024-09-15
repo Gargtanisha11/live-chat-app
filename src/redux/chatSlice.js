@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RESTE_ALL_STATE } from "../utils/Constants";
 
 const chatSlice = createSlice({
     name:"chats", 
@@ -34,6 +35,9 @@ const chatSlice = createSlice({
            updatedState[chatId].message.push(lastMessage._id)
            state.chat ={...updatedState}
         }
+    },
+    extraReducers:(builder)=>{
+      builder.addCase(RESTE_ALL_STATE,()=>initialState)
     }
 })
 

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RESTE_ALL_STATE } from "../utils/Constants";
 
 const authenticationDetailSlice=createSlice({
     name:" authenticationDetail",
@@ -11,11 +12,9 @@ const authenticationDetailSlice=createSlice({
             state.isloggedIn=true;
             state.userDetails= action.payload
         },
-        userLoggedOut:(state)=>{
-            state.isloggedIn=false;
-            state.userDetails=null
-        },
-        
+    },
+    extraReducers:(builder)=>{
+        builder.addCase(RESTE_ALL_STATE,()=>initialState)
     }
 })
  export const{ userLoggedIn,userLoggedOut}=authenticationDetailSlice.actions
