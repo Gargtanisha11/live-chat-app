@@ -32,7 +32,10 @@ const dispatch= useDispatch()
 
   //console.log(userDetails)
   useEffect(() => {
-    if (userDetails && !socket) {
+   console.log(userDetails && !(socket && socket.connected))
+    if (userDetails && !(socket && socket.connected)) {
+
+      console.log(userDetails)
       const newSocket = getSocket(userDetails._id);
       setSocket(newSocket);
       newSocket.on("connect", () => {
@@ -45,9 +48,9 @@ const dispatch= useDispatch()
      })
 
       return () => {
-        newSocket.disconnect();
+       if(newSocket && newSocket.connected){newSocket.disconnect();
         console.log(" disconnecting the connection");
-        setSocket(null);
+        setSocket(null);}
       };
     }
   }, [userDetails]);
