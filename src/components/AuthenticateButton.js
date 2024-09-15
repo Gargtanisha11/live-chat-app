@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { userLoggedOut } from "../redux/authenticationDetailSlice";
+import { RESTE_ALL_STATE } from "../utils/Constants";
 
 const AuthenticateButton = ({ name,  }) => {
 
@@ -21,7 +22,7 @@ const AuthenticateButton = ({ name,  }) => {
          const response = await logout();
           if(response?.status === 200){
             //navigate("/login")
-            dispatch(userLoggedOut())
+            dispatch({type:RESTE_ALL_STATE})
           }
         }
   }
